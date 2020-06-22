@@ -9,15 +9,27 @@ MODEL = ResNet50(weights='imagenet')
 DIMENSIONS = (224, 224)    # Dimensions of image required for ResNet50
 
 
-def get_predictions(img):
+def get_predictions(img, num_predictions=5):
+    """
+    Get top predictions for an image
+    :param img: image
+    :param num_predictions: top number of predictions to return
+    :return: predictions
+    """
     img_resize = cv2.resize(img, DIMENSIONS, interpolation=cv2.INTER_AREA)
     img_for_classifier = np.expand_dims(img_resize, axis=0)
     img_for_classifier = preprocess_input(img_for_classifier)
     # decode the results into a list of tuples (class, description, probability)
-    return decode_predictions(MODEL.predict(img_for_classifier), top=5)[0]
+    return decode_predictions(MODEL.predict(img_for_classifier), top=num_predictions)[0]
 
 
-def classify(img):
+def classify(img, num_predictions=5):
+    """
+    Get top predictions for an image and an associated bar chart display
+    :param img: image
+    :param num_predictions: top number of predictions to return
+    :return: predictions, predictions bar chart
+    """
     predictions = get_predictions(img)
     transpose_predictions = np.transpose(predictions)
     classifications = transpose_predictions[1]
