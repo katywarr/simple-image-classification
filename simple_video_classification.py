@@ -29,7 +29,7 @@ def live_camera_classifier():
         image = display_window.get_display_window(frame=frame)
         cv2.imshow('Live Video Camera Classifier', image)
 
-        if cv2.waitKey(1) & 0xFF == ord('p'):
+        if cv2.waitKey(1) & 0xFF == ord('c'):
             predictions, plot = image_classification_utils.classify(frame)
             print(predictions)
             image = display_window.get_display_window(frame=frame, plot=plot)
