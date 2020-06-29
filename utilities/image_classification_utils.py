@@ -14,7 +14,7 @@ def get_predictions(img, num_predictions=5):
     Get top predictions for an image
     :param img: image
     :param num_predictions: top number of predictions to return
-    :return: predictions
+    :return: vector of predictions for the image
     """
     img_resize = cv2.resize(img, DIMENSIONS, interpolation=cv2.INTER_AREA)
     img_for_classifier = np.expand_dims(img_resize, axis=0)
@@ -30,7 +30,7 @@ def classify(img, num_predictions=5):
     :param num_predictions: top number of predictions to return
     :return: predictions, predictions bar chart
     """
-    predictions = get_predictions(img)
+    predictions = get_predictions(img, num_predictions)
     transpose_predictions = np.transpose(predictions)
     classifications = transpose_predictions[1]
     # values = np.around((transpose_predictions[2] * 100), decimals=2)
