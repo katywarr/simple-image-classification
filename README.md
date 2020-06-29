@@ -4,7 +4,7 @@ This repository contains:
 
 * `simple_image_classification.ipynb`: A Jupyter notebook to perform basic image classification and display the results in order to test adversarial images
 * `simple_video_classification.py`: Python script to capture live video feed and perform image classification 
-* `images` folder containing sample images and adversarial patches (developed by engineers at [www.roke.co.uk](www.roke.co.uk))
+* `images` folder containing sample images and adversarial patches (developed by engineers at [www.roke.co.uk](https://www.roke.co.uk))
 
 ## Setting up your environment
 
@@ -37,6 +37,8 @@ Point your web camera in the direction of the scene that you would like to captu
 Press `c` each time you want to update the scene being classified.
 
 Press `q` to quit.
+
+(You cometimes need to press `c` or `q` a couple of times if the thread us busy)
 
 ## Running the image classifier
 
